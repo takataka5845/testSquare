@@ -16,7 +16,7 @@ testSquare
 ##インストール前の準備
 * Foursquare APIを使うために開発者登録が必要となります。
 * 開発者登録を行う事で、CLIENT_ID、CLIENT_SECRET、REDIRECT_URIが取得出来ます。
-* 詳しくは [ここ](http://www.shigekitakeguchi.com/archives/973 "CocoaPodsを使ったXcodeプロジェクトの作り方（１）") を参照して下さい。
+* 詳しくは [ここ](http://qiita.com/koogawa/items/df92ec1c7eb750312b77 "foursquare APIでできること #4sqdevjp") を参照して下さい。
 
 ##インストール
 * CocoaPodsをインストールします。CocoaPodsのインストール方法は [ここ](http://www.iosjp.com/dev/archives/451 "Objective-Cのライブラリ管理ツール CocoaPods") を見て下さい。
