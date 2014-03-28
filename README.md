@@ -7,6 +7,7 @@ testSquare
 ##条件
 * CocoaPodsが使用できる環境
 * Xcode5.1
+* iOS7.0以降
 
 ##機能
 * 現在位置の周辺のvenueを一覧表示します
@@ -15,7 +16,7 @@ testSquare
 ##インストール前の準備
 * Foursquare APIを使うために開発者登録が必要となります。
 * 開発者登録を行う事で、CLIENT_ID、CLIENT_SECRET、REDIRECT_URIが取得出来ます。
-* 詳しくはここを参照して下さい。
+* 詳しくは [ここ](http://www.shigekitakeguchi.com/archives/973 "CocoaPodsを使ったXcodeプロジェクトの作り方（１）") を参照して下さい。
 
 ##インストール
 * CocoaPodsをインストールします。CocoaPodsのインストール方法は [ここ](http://www.iosjp.com/dev/archives/451 "Objective-Cのライブラリ管理ツール CocoaPods") を見て下さい。
