@@ -13,7 +13,7 @@
 #import "VenueItem.h"
 #import <CoreLocation/CoreLocation.h>
 
-@interface MasterViewController () <CLLocationManagerDelegate, UITableViewDelegate>
+@interface MasterViewController () <CLLocationManagerDelegate, UITableViewDelegate, UIAlertViewDelegate>
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSMutableArray *nearbyVenues;
 @end
@@ -207,6 +207,38 @@
     
 }
 
+#pragma mark - UIAlertViewDelegate method
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    
+    if (buttonIndex == 0) {
+        NSLog(@"pushed NO Button");
+    }
+    // はいを選択した場合
+    else if (buttonIndex == 1) {
+        NSLog(@"pushed YES Button");
+        [Foursquare2 removeAccessToken];
+    }
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    
+    // はいを選択した場合
+    if (buttonIndex == 1) {
+        
+        if ([Foursquare2 isAuthorized] == NO) {
+        
+            NSLog(@"Authorized NO!!");
+        
+            [self loginToFoursquare];
+        
+        }
+    }
+}
 
 #pragma mark - Private method
 - (void) loginToFoursquare {
@@ -290,8 +322,13 @@
     
     NSLog(@"%s", __PRETTY_FUNCTION__);
     
-    [Foursquare2 removeAccessToken];
-    [self loginToFoursquare];
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"確認"
+                                                   message:@"Foursquareからログアウト\nしますか？"
+                                                  delegate:self
+                                         cancelButtonTitle:@"いいえ"
+                                         otherButtonTitles:@"はい", nil];
+    [alert show];
+    
 }
 
 - (void)pushedRefreshButton:(id)sender {
