@@ -9,9 +9,9 @@
 #import "AppDelegate.h"
 #import "Foursquare2.h"
 
-static NSString * kYOUR_CLIET_ID      = @"YOUR_FOURSQUARE_CLIET_ID";
+static NSString * kYOUR_CLIENT_ID     = @"YOUR_FOURSQUARE_CLIENT_ID";
 static NSString * kYOUR_CLIENT_SECRET = @"YOUR_FOURSQUARE_CLIENT_SECRET";
-static NSString * kYOUR_REDIRECT_URI  = @"YOUR_FOURSQUARE_CLIENT_SECRET";
+static NSString * kYOUR_REDIRECT_URI  = @"YOUR_FOURSQUARE_REDIRECT_URI";
 
 @implementation AppDelegate
 
@@ -19,7 +19,7 @@ static NSString * kYOUR_REDIRECT_URI  = @"YOUR_FOURSQUARE_CLIENT_SECRET";
 {
     NSLog(@"%s", __PRETTY_FUNCTION__);
     
-    [Foursquare2 setupFoursquareWithClientId:kYOUR_CLIET_ID
+    [Foursquare2 setupFoursquareWithClientId:kYOUR_CLIENT_ID
                                       secret:kYOUR_CLIENT_SECRET
                                  callbackURL:kYOUR_REDIRECT_URI];
     

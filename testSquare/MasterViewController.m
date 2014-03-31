@@ -8,14 +8,16 @@
 
 #import "MasterViewController.h"
 
-#import "DetailViewController.h"
+#import "CheckinViewController.h"
 #import "Foursquare2.h"
 #import "VenueItem.h"
 #import <CoreLocation/CoreLocation.h>
 
-@interface MasterViewController () <CLLocationManagerDelegate, UITableViewDelegate>
+@interface MasterViewController () <CLLocationManagerDelegate, UITableViewDelegate, UIAlertViewDelegate>
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSMutableArray *nearbyVenues;
+@property (strong, nonatomic) VenueItem *selectedItem;
+@property (strong, nonatomic) CLLocation *nowLocation;
 @end
 
 @implementation MasterViewController
@@ -145,6 +147,8 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         VenueItem *venue = self.nearbyVenues[indexPath.row];
@@ -160,22 +164,10 @@
     // 選択状態の解除
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    // Venueの内容を表示する
-    VenueItem *venue = self.nearbyVenues[indexPath.row];
+    // 選択したVenueの内容を保持する
+    self.selectedItem = self.nearbyVenues[indexPath.row];
     
-    NSString *detail;
-    if (venue.address) {
-        detail =  [NSString stringWithFormat:@"名前:%@\n住所:%@\n距離:%@m", venue.name, venue.address, venue.distance];
-    }
-    else {
-        detail =  [NSString stringWithFormat:@"名前:%@\n\n距離:%@m", venue.name, venue.distance];
-    }
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Venue情報"
-                                                   message:detail
-                                                  delegate:nil
-                                         cancelButtonTitle:nil
-                                         otherButtonTitles:@"確認", nil];
-    [alert show];
+    [self userDidSelectVenue];
     
 }
 
@@ -185,6 +177,8 @@
            fromLocation:(CLLocation *)oldLocation {
     
     NSLog(@"%s", __PRETTY_FUNCTION__);
+    
+    self.nowLocation = newLocation;
     
     [self.locationManager stopUpdatingLocation];
     [self getVenuesForLocation:newLocation];
@@ -207,6 +201,38 @@
     
 }
 
+#pragma mark - UIAlertViewDelegate method
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    
+    if (buttonIndex == 0) {
+        NSLog(@"pushed NO Button");
+    }
+    // はいを選択した場合
+    else if (buttonIndex == 1) {
+        NSLog(@"pushed YES Button");
+        [Foursquare2 removeAccessToken];
+    }
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    
+    // はいを選択した場合
+    if (buttonIndex == 1) {
+        
+        if ([Foursquare2 isAuthorized] == NO) {
+        
+            NSLog(@"Authorized NO!!");
+        
+            [self loginToFoursquare];
+        
+        }
+    }
+}
 
 #pragma mark - Private method
 - (void) loginToFoursquare {
@@ -253,7 +279,7 @@
                                               NSLog(@"distance[%@]", item.distance);
                                           }
                                           
-                                          NSLog(@"nearbyVenues count[%d]", self.nearbyVenues.count);
+                                          NSLog(@"nearbyVenues count[%lu]", (unsigned long)self.nearbyVenues.count);
                                           [self.tableView reloadData];
                                           
                                       }
@@ -285,13 +311,30 @@
     return (NSMutableArray *)[objects sortedArrayUsingDescriptors:sortArray];
 }
 
+- (void)userDidSelectVenue {
+    
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    CheckinViewController *checkin = [storyboard instantiateViewControllerWithIdentifier:@"CheckinVC"];
+    checkin.detailItem = self.selectedItem;
+    checkin.nowLocation = self.nowLocation;
+    [self.navigationController pushViewController:checkin animated:YES];
+    
+}
+
 #pragma mark - Button CallBack
 - (void)pushedLogoutButton:(id)sender {
     
     NSLog(@"%s", __PRETTY_FUNCTION__);
     
-    [Foursquare2 removeAccessToken];
-    [self loginToFoursquare];
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"確認"
+                                                   message:@"Foursquareからログアウト\nしますか？"
+                                                  delegate:self
+                                         cancelButtonTitle:@"いいえ"
+                                         otherButtonTitles:@"はい", nil];
+    [alert show];
+    
 }
 
 - (void)pushedRefreshButton:(id)sender {
