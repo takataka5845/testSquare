@@ -8,14 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		77B057670857449491B57990 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49EAEF75B56E4E87AB9328F7 /* libPods.a */; };
+		C227415018E5031D00C2C96E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C227414F18E5031D00C2C96E /* MapKit.framework */; };
 		C248F2ED18E25A4D00E0603C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C248F2EC18E25A4D00E0603C /* Foundation.framework */; };
 		C248F2EF18E25A4D00E0603C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C248F2EE18E25A4D00E0603C /* CoreGraphics.framework */; };
 		C248F2F118E25A4D00E0603C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C248F2F018E25A4D00E0603C /* UIKit.framework */; };
 		C28CD9E118E26E330042BC2B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28CD9E018E26E330042BC2B /* CoreLocation.framework */; };
 		C28CD9E318E271250042BC2B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28CD9E218E271250042BC2B /* Security.framework */; };
+		C2DFC8D518E93717001BC3F2 /* ColorAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = C2DFC8D418E93717001BC3F2 /* ColorAnnotation.m */; };
 		C2F4F23618E2B23E00DF6F99 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F4F22718E2B23E00DF6F99 /* AppDelegate.m */; };
 		C2F4F23718E2B23E00DF6F99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2F4F22818E2B23E00DF6F99 /* Main.storyboard */; };
-		C2F4F23818E2B23E00DF6F99 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F4F22B18E2B23E00DF6F99 /* DetailViewController.m */; };
+		C2F4F23818E2B23E00DF6F99 /* CheckinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F4F22B18E2B23E00DF6F99 /* CheckinViewController.m */; };
 		C2F4F23918E2B23E00DF6F99 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2F4F22C18E2B23E00DF6F99 /* InfoPlist.strings */; };
 		C2F4F23A18E2B23E00DF6F99 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2F4F22E18E2B23E00DF6F99 /* Images.xcassets */; };
 		C2F4F23B18E2B23E00DF6F99 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F4F22F18E2B23E00DF6F99 /* main.m */; };
@@ -26,6 +28,7 @@
 /* Begin PBXFileReference section */
 		2D4BE1B653F14A6DBA97F116 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		49EAEF75B56E4E87AB9328F7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C227414F18E5031D00C2C96E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C248F2E918E25A4D00E0603C /* testSquare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testSquare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C248F2EC18E25A4D00E0603C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C248F2EE18E25A4D00E0603C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -33,11 +36,13 @@
 		C248F30E18E25A4D00E0603C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		C28CD9E018E26E330042BC2B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C28CD9E218E271250042BC2B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		C2DFC8D318E93717001BC3F2 /* ColorAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorAnnotation.h; sourceTree = "<group>"; };
+		C2DFC8D418E93717001BC3F2 /* ColorAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorAnnotation.m; sourceTree = "<group>"; };
 		C2F4F22618E2B23E00DF6F99 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C2F4F22718E2B23E00DF6F99 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C2F4F22918E2B23E00DF6F99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C2F4F22A18E2B23E00DF6F99 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		C2F4F22B18E2B23E00DF6F99 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		C2F4F22A18E2B23E00DF6F99 /* CheckinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckinViewController.h; sourceTree = "<group>"; };
+		C2F4F22B18E2B23E00DF6F99 /* CheckinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckinViewController.m; sourceTree = "<group>"; };
 		C2F4F22D18E2B23E00DF6F99 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C2F4F22E18E2B23E00DF6F99 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C2F4F22F18E2B23E00DF6F99 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -54,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C227415018E5031D00C2C96E /* MapKit.framework in Frameworks */,
 				C28CD9E318E271250042BC2B /* Security.framework in Frameworks */,
 				C28CD9E118E26E330042BC2B /* CoreLocation.framework in Frameworks */,
 				C248F2EF18E25A4D00E0603C /* CoreGraphics.framework in Frameworks */,
@@ -87,6 +93,7 @@
 		C248F2EB18E25A4D00E0603C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C227414F18E5031D00C2C96E /* MapKit.framework */,
 				C28CD9E218E271250042BC2B /* Security.framework */,
 				C28CD9E018E26E330042BC2B /* CoreLocation.framework */,
 				C248F2EC18E25A4D00E0603C /* Foundation.framework */,
@@ -104,14 +111,16 @@
 				C2F4F22618E2B23E00DF6F99 /* AppDelegate.h */,
 				C2F4F22718E2B23E00DF6F99 /* AppDelegate.m */,
 				C2F4F22818E2B23E00DF6F99 /* Main.storyboard */,
-				C2F4F22A18E2B23E00DF6F99 /* DetailViewController.h */,
-				C2F4F22B18E2B23E00DF6F99 /* DetailViewController.m */,
+				C2F4F22A18E2B23E00DF6F99 /* CheckinViewController.h */,
+				C2F4F22B18E2B23E00DF6F99 /* CheckinViewController.m */,
 				C2F4F23018E2B23E00DF6F99 /* MasterViewController.h */,
 				C2F4F23118E2B23E00DF6F99 /* MasterViewController.m */,
 				C2F4F23418E2B23E00DF6F99 /* VenueItem.h */,
 				C2F4F23518E2B23E00DF6F99 /* VenueItem.m */,
 				C2F4F22E18E2B23E00DF6F99 /* Images.xcassets */,
 				C2F4F23F18E2B27700DF6F99 /* Supporting Files */,
+				C2DFC8D318E93717001BC3F2 /* ColorAnnotation.h */,
+				C2DFC8D418E93717001BC3F2 /* ColorAnnotation.m */,
 			);
 			path = testSquare;
 			sourceTree = SOURCE_ROOT;
@@ -231,7 +240,8 @@
 				C2F4F23B18E2B23E00DF6F99 /* main.m in Sources */,
 				C2F4F23C18E2B23E00DF6F99 /* MasterViewController.m in Sources */,
 				C2F4F23E18E2B23E00DF6F99 /* VenueItem.m in Sources */,
-				C2F4F23818E2B23E00DF6F99 /* DetailViewController.m in Sources */,
+				C2DFC8D518E93717001BC3F2 /* ColorAnnotation.m in Sources */,
+				C2F4F23818E2B23E00DF6F99 /* CheckinViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
